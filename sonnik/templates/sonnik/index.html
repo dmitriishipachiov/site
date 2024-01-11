@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block left %}
+   <h2>
+   <a href="{% url 'dreams' %}"><p>А</p></a>
+   <a href="{% url 'dreams' %}"><p>Б</p></a>
+   <a href="{% url 'dreams' %}"><p>В</p></a>
+   <a href="{% url 'dreams' %}"><p>Г</p></a>
+   </h2>
+{% endblock %}
+
+{% block content %}
+<h2>
+   {% lorem 7 %}
+</h2>
+{% endblock %}

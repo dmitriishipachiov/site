@@ -1,0 +1,39 @@
+body {
+    background: linear-gradient(90deg, indigo 0%, rgb(0, 30, 199) 100%);
+}
+
+.topnav {
+    background: linear-gradient(90deg, rgb(0, 23, 170) 0%, indigo 100%);
+    overflow: hidden;
+    outline: 4px solid #030b48;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 22px 32px;
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.topnav a:hover {
+    background-color: aqua;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #8405e6;
+    color: white;
+}
+
+.conteiner {
+    grid-template-columns: repeat(1);
+    grid-template-rows: repeat(3);
+    color: white;
+}
+
+.conteiner a {
+    color: white;
+    text-decoration: none;
+}

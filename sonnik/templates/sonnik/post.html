@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block left %}
+<h2>
+   <a href="{% url 'dreams' %}"><p>А</p></a>
+   <a href="{% url 'dreams' %}"><p>Б</p></a>
+   <a href="{% url 'dreams' %}"><p>В</p></a>
+   <a href="{% url 'dreams' %}"><p>Г</p></a>
+   </h2>
+{% endblock %}
+
+{% block content %}
+
+{% if post.photo %}
+    <p><img src="{{ post.photo.url }}"></p>
+{% endif %}
+
+<h2>{{post.descript|linebreaks}}</h2>
+
+{% endblock %}

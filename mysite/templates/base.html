@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сонник</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mainbar.css' %}">
+</head>
+
+<body>
+    <header>
+        <div class="topnav">
+            <a class="active" href="{% url 'index' %}">Сонник</a>
+            <a href="{% url 'page' %}">Гороскоп</a>
+            <a href="{% url 'contact' %}">Таро</a>
+            <a href="about">Лавка</a>
+        </div>
+    </header>
+
+    <div class="main-bar">
+        <div class="left-bar">
+            {% block left %}
+            {% endblock %}
+        </div>
+
+        <div class="conteiner">
+            {% block content %}
+            {% endblock %}    
+        </div>
+
+        {% block rite %}
+        <div class="rite-bar">
+            <p> Реклама {% lorem 1 b random %}</p>           
+            <p> Реклама {% lorem 1 b random %}</p>
+            <p> Реклама {% lorem 1 b random %}</p>             
+        </div>
+        {% endblock %} 
+    </div>
+
+</body>
+
+</html>
