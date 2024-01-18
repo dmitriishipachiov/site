@@ -11,44 +11,36 @@ menu = [
 
 def index(request):
     posts = Dream.objects.all()
+    cats = Category.objects.all()
     context = {
         'posts': posts,
+        'cats': cats,
         'menu': menu,
-        'title': 'Сонник'
+        'title': 'Сонник',
+        'cat_selected': 0,
     }
     return render(request, 'sonnik/index.html', context=context)
 
-def dreams(request):
-    posts = Dream.objects.all()
-    context = {
-        'posts': posts,
-        'menu': menu,
-        'title': 'Сонник'
-    }
-    return render(request, 'sonnik/dreams.html', context=context)
-
-
 def show_post(request, post_slug):
     post = get_object_or_404(Dream, slug = post_slug)
+    cats = Category.objects.all()
     context = {
         'post': post,
+        'cats': cats,
         'menu': menu,
-        'title': post.title
+        'title': post.title,
+        'cat_selected': post.cat_id
     }
-
     return render(request, 'sonnik/post.html', context=context)
-
 
 def show_category(request, cat_id):
     posts = Dream.objects.filter(cat_id=cat_id)
-
-    if len(posts) == 0:
-        raise http(404)
-
+    cats = Category.objects.all()
     context = {
         'posts': posts,
+        'cats': cats,
         'menu': menu,
-        'title': 'рубрики',
+        'title': 'Отображение по рубрикам',
         'cat_selected': cat_id
     }
-    return render(request, 'sonnik/post.html', context=context)
+    return render(request, 'sonnik/index.html', context=context)

@@ -16,7 +16,7 @@
     grid-column: 11/13;    
 }
 
-.left-bar p {    
+.left-bar a {  
     margin: 1em;
     padding: 1em;
     text-decoration: none;
