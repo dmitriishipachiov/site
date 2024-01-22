@@ -4,15 +4,14 @@ from .models import *
 menu = [
     {"title": "Сонник", "url_name": ""},
     {"title": "Гороскоп", "url_name": "page"},
-    {"title": "Таро", "url_name": "contact"},
-    {"title": "Лавка", "url_name": "about"},
+    {"title": "Таро", "url_name": "contact"}
 ]
 
 
 def contact(request):
     posts = Arkan.objects.all()
     context = {"posts": posts, "menu": menu, "title": "Таро"}
-    return render(request, "taro/page.html", context=context)
+    return render(request, "taro/contact.html", context=context)
 
 
 def show_post(request, post_slug):

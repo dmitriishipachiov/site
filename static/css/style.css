@@ -21,13 +21,3 @@ body {
     background-color: #8405e6;
     color: white;
 }
-
-.conteiner {
-    grid-template-columns: repeat(1);
-    grid-template-rows: repeat(3);
-}
-
-.conteiner a {
-    color: white;
-    text-decoration: none;
-}

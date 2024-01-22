@@ -9,7 +9,7 @@ class Category(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('category', kwargs={'cat_slug': self.slug})
+        return reverse('category', kwargs={'cat_id': self.pk})
 
 
 class Star(models.Model):
