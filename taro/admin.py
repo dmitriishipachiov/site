@@ -9,4 +9,10 @@ class ArkanAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
+class ArkanCategoryAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+    list_display_links = ('id', 'name')
+    search_fields = ('name',)
+
 admin.site.register(Arkan, ArkanAdmin)
+admin.site.register(ArkanCategory, ArkanCategoryAdmin)

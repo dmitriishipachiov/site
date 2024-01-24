@@ -2,8 +2,9 @@ from django.db import models
 from django.urls import reverse
 
 
-class Category(models.Model):
+class StarCategory(models.Model):
     name = models.CharField(max_length=100, db_index=True)
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
 
     def __str__(self):
         return self.name
@@ -17,7 +18,7 @@ class Star(models.Model):
     content = models.TextField()
     photo = models.ImageField(upload_to='static/', blank=True, verbose_name='Фото')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
-    cat = models.ForeignKey(Category, on_delete=models.PROTECT, null=True)
+    cat = models.ForeignKey(StarCategory, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.title

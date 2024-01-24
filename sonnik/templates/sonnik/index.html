@@ -1,23 +1,5 @@
 {% extends 'base.html' %}
 
-{% comment %} {% block left %}
-<h3>
-{% if cat_selected == 0 %}
-   <div class="selected">Все категории</div>
-{% else %}
-   <p><a href="{% url 'index' %}">Все категории</a></p>
-{% endif %}
-
-{% for cat in cats %}
-{% if cat.pk == cat_selected %}
-   <div class="selected">{{ cat.name }}</div>
-{% else %}
-   <a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
-{% endif %}
-{% endfor %}
-</h3>
-{% endblock %} {% endcomment %}
-
 {% block content %}
 {% for post in posts %}
 <h2>

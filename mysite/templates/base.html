@@ -21,19 +21,11 @@
 
     <div class="main-bar">
         <div class="left-bar">
-            {% comment %} {% block left %} {% endcomment %}
-            <p> Реклама {% lorem 1 b random %}</p>           
-            <p> Реклама {% lorem 1 b random %}</p>
-            <p> Реклама {% lorem 1 b random %}</p>
-            {% comment %} {% endblock %} {% endcomment %}
-        </div>
-
-        <div class="conteiner">
             <h3>    
                 {% if cat_selected == 0 %}
                     <div class="selected">Все категории</div>
                 {% else %}
-                    <p><a href="{{ cat.get_absolute_url }}">Все категории</a></p>
+                    <a href="{{ cat.get_absolute_url }}">Все категории</a>
                 {% endif %}
     
                 {% for cat in cats %}
@@ -43,18 +35,18 @@
                     <a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
                     {% endif %}
                 {% endfor %}
-                </h3>
+            </h3>    
+        </div>
+
+        <div class="conteiner">
             {% block content %}
             {% endblock %}    
         </div>
 
-        {% block rite %}
         <div class="rite-bar">
-            <p> Реклама {% lorem 1 b random %}</p>           
-            <p> Реклама {% lorem 1 b random %}</p>
-            <p> Реклама {% lorem 1 b random %}</p>             
+            <p>Реклама {% lorem  %}</p>           
+            <p>Реклама {% lorem  %}</p>            
         </div>
-        {% endblock %} 
     </div>
 
 </body>

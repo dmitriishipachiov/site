@@ -9,10 +9,10 @@ class DreamAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
 
 
-class CategoryAdmin(admin.ModelAdmin):
+class DreamCategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'name')
     list_display_links = ('id', 'name')
     search_fields = ('name',)
 
 admin.site.register(Dream, DreamAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(DreamCategory, DreamCategoryAdmin)

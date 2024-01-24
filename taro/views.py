@@ -1,21 +1,29 @@
 from django.shortcuts import get_object_or_404, render
 from .models import *
 
-menu = [
-    {"title": "Сонник", "url_name": ""},
-    {"title": "Гороскоп", "url_name": "page"},
-    {"title": "Таро", "url_name": "contact"}
-]
-
 
 def contact(request):
     posts = Arkan.objects.all()
-    context = {"posts": posts, "menu": menu, "title": "Таро"}
+    cats = ArkanCategory.objects.all()
+    context = {"posts": posts, 'cats': cats, "title": "Таро"}
     return render(request, "taro/contact.html", context=context)
 
 
 def show_post(request, post_slug):
     post = get_object_or_404(Arkan, slug=post_slug)
-    context = {"post": post, "menu": menu, "title": post.title}
+    cats = ArkanCategory.objects.all()
+    context = {"post": post, 'cats': cats, "title": post.title}
 
     return render(request, "taro/post.html", context=context)
+
+
+def show_category(request, cat_id):
+    items = Arkan.objects.filter(cat_id=cat_id)
+    cats = ArkanCategory.objects.all()
+    context = {
+        'items': items,
+        'cats': cats,
+        'title': 'Отображение по рубрикам',
+        'cat_selected': cat_id
+    }
+    return render(request, 'taro/post.html', context=context)
