@@ -18,12 +18,12 @@ def show_post(request, post_slug):
 
 
 def show_category(request, cat_id):
-    items = Arkan.objects.filter(cat_id=cat_id)
+    posts = Arkan.objects.filter(cat_id=cat_id)
     cats = ArkanCategory.objects.all()
     context = {
-        'items': items,
+        'posts': posts,
         'cats': cats,
         'title': 'Отображение по рубрикам',
         'cat_selected': cat_id
     }
-    return render(request, 'taro/post.html', context=context)
+    return render(request, 'taro/contact.html', context=context)

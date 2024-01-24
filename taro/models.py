@@ -20,7 +20,6 @@ class Arkan(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
     cat = models.ForeignKey(ArkanCategory, on_delete=models.PROTECT)
     
-
     def __str__(self):
         return self.title
     
