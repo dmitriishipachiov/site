@@ -8,34 +8,37 @@
     <title>{{ title }}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/mainbar.css' %}">
+    <link rel="stylesheet" href="{% static 'images/' %}">
 </head>
 
 <body>
     <header>
         <div class="topnav">
-            <a href="{% url 'index' %}">Сонник</a>
-            <a href="{% url 'page' %}">Гороскоп</a>
-            <a href="{% url 'contact' %}">Таро</a>
+            <a href="{% url 'sonnik:index' %}">Сонник</a>
+            <a href="{% url 'goroskop:page' %}">Гороскоп</a>
+            {% comment %} <a href="{% url 'contact' %}">Таро</a> {% endcomment %}
         </div>
-    </header>
+    </header>   
 
     <div class="main-bar">
         <div class="left-bar">
-            <h3>    
-                {% if cat_selected == 0 %}
-                    <div class="selected">Все категории</div>
-                {% else %}
-                    <a href="{{ cat.get_absolute_url }}">Все категории</a>
-                {% endif %}
-    
-                {% for cat in cats %}
-                    {% if cat.pk == cat_selected %}
-                    <div class="selected">{{ cat.name }}</div>
-                    {% else %}
-                    <a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
-                    {% endif %}
-                {% endfor %}
-            </h3>    
+            <h3>
+            {% for m in menu %}    
+            {% if cat_selected == 0 %}
+                <div class="leftbar">Все категории</div>
+            {% else %}
+                <a href="{% url m.url_name %}">Все категории</a>
+            {% endif %}
+            {% endfor %}
+
+            {% for cat in cats %}
+            {% if cat.pk == cat_selected %}
+                <li class="selected">{{ cat.name }}</li>
+            {% else %}
+                <a href="{{ cat.get_absolute_url }}">{{ cat.name }}</a>
+            {% endif %}    
+            {% endfor %}
+            </h3>
         </div>
 
         <div class="conteiner">

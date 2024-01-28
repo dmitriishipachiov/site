@@ -10,13 +10,13 @@ class StarCategory(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('category', kwargs={'cat_id': self.pk})
+        return reverse('goroskop:category', kwargs={'cat_id': self.pk})
 
 
 class Star(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
-    photo = models.ImageField(upload_to='static/', blank=True, verbose_name='Фото')
+    photo = models.ImageField(upload_to='static/images', blank=True, verbose_name='Фото')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
     cat = models.ForeignKey(StarCategory, on_delete=models.PROTECT)
 
@@ -24,4 +24,4 @@ class Star(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('item', kwargs={'item_slug': self.slug})
+        return reverse('goroskop:item', kwargs={'item_slug': self.slug})

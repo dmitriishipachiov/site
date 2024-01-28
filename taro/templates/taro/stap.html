@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if stap.photo %}
+    <p><img src="{{ stap.photo.url }}"></p>
+{% endif %}
+
+<h2>{{stap.descript|linebreaks}}</h2>
+
+{% endblock %}

@@ -3,40 +3,45 @@ from django.shortcuts import get_object_or_404, render
 from .models import *
 from django.views.generic import ListView
 
+app_name = 'sonnik'
 
-class DreamHome(ListView):
-    model = Dream
-    template_name = 'sonnik/index.html'
-    context_object_name = 'posts'
+menu = [{'title': 'Сонник', 'url_name': 'sonnik:index'}]
 
-    def get_queryset(self):
-        return Dream.objects.all().select_related('cat')
+# class DreamHome(ListView):
+#     model = Dream
+#     template_name = 'sonnik/index.html'
+#     context_object_name = 'posts'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["title"] = 'Сонник'
-        context["cat_selected"] = 0
-        return context
+#     def get_queryset(self):
+#         return Dream.objects.all().select_related('cat')
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["title"] = 'Сонник'
+#         context["cat_selected"] = 0
+#         return context
     
     
-# def index(request):
-#     posts = Dream.objects.all()
-#     cats = Category.objects.all()
-#     context = {
-#         'posts': posts,
-#         'cats': cats,
-#         'title': 'Сонник',
-#         'cat_selected': 0,
-#     }
-#     return render(request, 'sonnik/index.html', context=context)
+def index(request):
+    posts = Dream.objects.all()
+    cats = DreamCategory.objects.all()
+    context = {
+        'posts': posts,
+        'cats': cats,
+        'menu': menu,
+        'title': 'Сонник',
+        'cat_selected': 0,
+    }
+    return render(request, 'sonnik/index.html', context=context)
 
 
 def show_post(request, post_slug):
-    post = get_object_or_404(Dream, slug = post_slug)
+    post = get_object_or_404(Dream, slug=post_slug)
     cats = DreamCategory.objects.all()
     context = {
         'post': post,
         'cats': cats,
+        'menu': menu,
         'title': post.title,
         'cat_selected': post.cat_id
     }
@@ -65,6 +70,7 @@ def show_category(request, cat_id):
     context = {
         'posts': posts,
         'cats': cats,
+        'menu': menu,
         'title': 'Отображение по рубрикам',
         'cat_selected': cat_id
     }

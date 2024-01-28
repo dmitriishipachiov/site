@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for post in posts %}
+{% for stap in staps %}
 <h2>
-   <a href="{{ post.get_absolute_url }}">{{ post.title }}</a>
+   <a href="{{ stap.get_absolute_url }}">{{ stap.title }}</a>
 </h2>
 {% endfor %}
 {% endblock %}

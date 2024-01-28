@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sonnik.apps.SonnikConfig',
     'goroskop.apps.GoroskopConfig',
-    'taro.apps.TaroConfig',
-    'lavka.apps.LavkaConfig',
+    # 'taro.apps.TaroConfig',
+    # 'lavka.apps.LavkaConfig',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +122,8 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    BASE_DIR / 'static',
+    BASE_DIR / 'static/', 
+    
     ]
 
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

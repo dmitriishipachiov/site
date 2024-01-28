@@ -1,6 +1,10 @@
 from django.shortcuts import get_object_or_404, render
 from .models import *
 
+app_name = 'goroskop'
+
+menu = [{'title': 'Гороскоп', 'url_name': 'goroskop:page'}]
+
 
 def page(request):
     items = Star.objects.all()
@@ -8,6 +12,7 @@ def page(request):
     context = {
         'items': items,
         'cats': cats,
+        'menu': menu,
         'title': 'Гороскоп',
         'cat_selected': 0,
     }
@@ -20,6 +25,7 @@ def show_post(request, item_slug):
     context = {
         'item': item,
         'cats': cats,
+        'menu': menu,
         'title': item.title,
         'cat_selected': item.cat_id
     }
@@ -32,6 +38,7 @@ def show_category(request, cat_id):
     context = {
         'items': items,
         'cats': cats,
+        'menu': menu,
         'title': 'Отображение по рубрикам',
         'cat_selected': cat_id
     }

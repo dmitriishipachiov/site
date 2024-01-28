@@ -10,13 +10,13 @@ class DreamCategory(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('category', kwargs={'cat_id': self.pk})
+        return reverse('sonnik:category', kwargs={'cat_id': self.pk})
 
 
 class Dream(models.Model):
     title = models.CharField(max_length=255)
     descript = models.TextField()
-    photo = models.ImageField(upload_to='static/', blank=True, verbose_name='Фото')
+    photo = models.ImageField(upload_to='static/images', blank=True, verbose_name='Фото')
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL')
     cat = models.ForeignKey(DreamCategory, on_delete=models.PROTECT)
 
@@ -24,5 +24,5 @@ class Dream(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('post', kwargs={'post_slug': self.slug})
+        return reverse('sonnik:post', kwargs={'post_slug': self.slug})
     

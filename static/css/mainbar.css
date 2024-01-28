@@ -12,6 +12,11 @@
     color: white;
 }
 
+.left-bar a {
+    text-decoration: none;
+    color: white;
+}
+
 .conteiner {
     grid-column: 3/11;
     grid-template-columns: repeat(1);
