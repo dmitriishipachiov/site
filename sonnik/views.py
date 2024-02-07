@@ -1,25 +1,9 @@
-from msilib.schema import ListView
 from django.shortcuts import get_object_or_404, render
 from .models import *
-from django.views.generic import ListView
 
 app_name = 'sonnik'
 
 menu = [{'title': 'Сонник', 'url_name': 'sonnik:index'}]
-
-# class DreamHome(ListView):
-#     model = Dream
-#     template_name = 'sonnik/index.html'
-#     context_object_name = 'posts'
-
-#     def get_queryset(self):
-#         return Dream.objects.all().select_related('cat')
-
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         context["title"] = 'Сонник'
-#         context["cat_selected"] = 0
-#         return context
     
     
 def index(request):
@@ -45,23 +29,7 @@ def show_post(request, post_slug):
         'title': post.title,
         'cat_selected': post.cat_id
     }
-    return render(request, 'sonnik/post.html', context=context)
-
-
-# class DreamCategory(ListView):
-#     # model = Category
-#     template_name = 'sonnik/index.html'
-#     context_object_name = 'posts'
-
-#     def get_queryset(self):
-#         return Dream.objects.all().select_related('cat')
-    
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         cat = context['posts'][0].cat
-#         context["title"] = 'Категория - ' + cat.name
-#         context["cat_selected"] = cat.pk
-#         return context
+    return render(request, 'sonnik/index.html', context=context)
     
 
 def show_category(request, cat_id):

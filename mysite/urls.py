@@ -19,7 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('sonnik.urls', namespace='sonnik')),
+    path('', include('lavka.urls', namespace='lavka')),
+    path('index/', include('sonnik.urls', namespace='sonnik')),
     path('page/', include('goroskop.urls', namespace='goroskop')),
-    # path('', include('taro.urls')),
+    path('contact/', include('taro.urls', namespace='taro')),
 ]

@@ -18,7 +18,7 @@
 }
 
 .conteiner {
-    grid-column: 3/11;
+    grid-column: 3/10;
     grid-template-columns: repeat(1);
     grid-template-rows: repeat(3);
     margin: 1em;
@@ -34,7 +34,7 @@
 }
 
 .rite-bar {
-    grid-column: 11/13;    
+    grid-column: 10/13;    
 }
 
 .rite-bar p {

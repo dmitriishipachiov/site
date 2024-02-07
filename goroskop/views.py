@@ -29,7 +29,7 @@ def show_post(request, item_slug):
         'title': item.title,
         'cat_selected': item.cat_id
     }
-    return render(request, 'goroskop/item.html', context=context)
+    return render(request, 'goroskop/page.html', context=context)
 
 
 def show_category(request, cat_id):

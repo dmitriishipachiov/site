@@ -40,8 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'sonnik.apps.SonnikConfig',
     'goroskop.apps.GoroskopConfig',
-    # 'taro.apps.TaroConfig',
-    # 'lavka.apps.LavkaConfig',
+    'taro.apps.TaroConfig',
+    'lavka.apps.LavkaConfig',
 ]
 
 MIDDLEWARE = [

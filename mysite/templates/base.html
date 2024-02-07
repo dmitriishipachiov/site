@@ -14,9 +14,10 @@
 <body>
     <header>
         <div class="topnav">
+            <a href="{% url 'lavka:about' %}">Главная</a>
             <a href="{% url 'sonnik:index' %}">Сонник</a>
             <a href="{% url 'goroskop:page' %}">Гороскоп</a>
-            {% comment %} <a href="{% url 'contact' %}">Таро</a> {% endcomment %}
+            <a href="{% url 'taro:contact' %}">Таро</a>
         </div>
     </header>   
 
@@ -47,8 +48,7 @@
         </div>
 
         <div class="rite-bar">
-            <p>Реклама {% lorem  %}</p>           
-            <p>Реклама {% lorem  %}</p>            
+            {% comment %} {% include "about" %}                       {% endcomment %}
         </div>
     </div>
 

@@ -2,8 +2,12 @@
 
 {% block content %}
 {% for stap in staps %}
-<h2>
-   <a href="{{ stap.get_absolute_url }}">{{ stap.title }}</a>
-</h2>
+<h2><a href="{{ stap.get_absolute_url }}">{{ stap.title }}</a></h2>
 {% endfor %}
+
+{% if stap.photo %}
+<p><img src="{{ stap.photo.url }}"></p>
+{% endif %}
+<h2>{{stap.descript|linebreaks}}</h2>
+
 {% endblock %}
